@@ -1,0 +1,1029 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #050505;
+    color: white;
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   GENERAL SCREEN
+===================================================== */
+
+.screen,
+.memoryScreen,
+.finalScreen {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+
+/* =====================================================
+   LOADING SCREEN
+===================================================== */
+
+#loadingScreen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle,
+            #3a0715,
+            #120208 50%,
+            #000000
+        );
+
+    z-index: 10000;
+
+    transition:
+        opacity 1.2s ease,
+        visibility 1.2s ease;
+}
+
+#loadingScreen.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loadingContent {
+    width: 90%;
+    max-width: 450px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* =====================================================
+   HEART
+===================================================== */
+
+.heartArea {
+    position: relative;
+
+    width: 160px;
+    height: 160px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.beatingHeart {
+    position: relative;
+    z-index: 2;
+
+    font-size: 85px;
+
+    animation: heartbeat 1.1s infinite;
+
+    filter:
+        drop-shadow(0 0 15px rgba(255, 30, 80, .9))
+        drop-shadow(0 0 40px rgba(255, 0, 60, .5));
+}
+
+.heartGlow {
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 20, 70, .25);
+
+    filter: blur(35px);
+
+    animation: heartGlow 1.1s infinite;
+}
+
+@keyframes heartbeat {
+
+    0% {
+        transform: scale(1);
+    }
+
+    12% {
+        transform: scale(1.2);
+    }
+
+    24% {
+        transform: scale(1);
+    }
+
+    38% {
+        transform: scale(1.15);
+    }
+
+    60% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes heartGlow {
+
+    0% {
+        transform: scale(1);
+        opacity: .4;
+    }
+
+    12% {
+        transform: scale(1.4);
+        opacity: .8;
+    }
+
+    24% {
+        transform: scale(1);
+        opacity: .4;
+    }
+
+    38% {
+        transform: scale(1.3);
+        opacity: .7;
+    }
+
+    60% {
+        transform: scale(1);
+        opacity: .4;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: .4;
+    }
+}
+
+
+/* =====================================================
+   LOADING TEXT
+===================================================== */
+
+.loadingContent h1 {
+    font-size: 44px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+#loadingMessage {
+    color: #aaa;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+
+/* =====================================================
+   LOADING BAR
+===================================================== */
+
+.loadingBar {
+    width: 100%;
+    height: 8px;
+
+    border-radius: 20px;
+    overflow: hidden;
+
+    background: rgba(255,255,255,.1);
+}
+
+#loadingProgress {
+    width: 0%;
+    height: 100%;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff1744,
+            #ff6f91
+        );
+
+    box-shadow:
+        0 0 15px #ff1744;
+
+    transition:
+        width .05s linear;
+}
+
+#loadingPercent {
+    margin-top: 12px;
+
+    color: #888;
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   PIN SCREEN
+===================================================== */
+
+#pinScreen {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle,
+            #28050e,
+            #090307 65%,
+            #000
+        );
+
+    z-index: 9000;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: scale(1.05);
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease,
+        transform 1s ease;
+}
+
+#pinScreen.show {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+.pinContainer {
+    width: 90%;
+    max-width: 420px;
+
+    padding: 50px 35px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255,255,255,.05);
+
+    border:
+        1px solid rgba(255,255,255,.1);
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.5);
+}
+
+.lockIcon {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.pinContainer h1 {
+    font-size: 42px;
+
+    color: #ff7898;
+
+    margin-bottom: 15px;
+}
+
+.pinContainer > p {
+    color: #999;
+    line-height: 1.6;
+}
+
+.pinContainer h3 {
+    margin-top: 30px;
+    margin-bottom: 18px;
+
+    font-size: 14px;
+
+    color: #ddd;
+
+    letter-spacing: 1px;
+
+    font-weight: 400;
+}
+
+#pinInput {
+    width: 100%;
+
+    padding: 16px;
+
+    border-radius: 15px;
+
+    border:
+        1px solid rgba(255,255,255,.15);
+
+    background:
+        rgba(0,0,0,.35);
+
+    color: white;
+
+    outline: none;
+
+    text-align: center;
+
+    font-size: 26px;
+
+    letter-spacing: 12px;
+
+    margin-bottom: 20px;
+}
+
+#pinInput:focus {
+    border-color: #ff5278;
+
+    box-shadow:
+        0 0 20px rgba(255,50,90,.2);
+}
+
+#pinInput::placeholder {
+    color: #555;
+    letter-spacing: 8px;
+}
+
+
+/* =====================================================
+   GENERAL BUTTON
+===================================================== */
+
+button {
+    border: none;
+    outline: none;
+
+    padding: 15px 30px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff416c,
+            #ff1744
+        );
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px rgba(255,23,68,.3);
+
+    transition: .3s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 40px rgba(255,23,68,.5);
+}
+
+#pinError {
+    min-height: 25px;
+
+    margin-top: 18px;
+
+    color: #ff7898;
+}
+
+
+/* =====================================================
+   MAIN MENU
+===================================================== */
+
+#menuScreen {
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 40px 25px;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #350713,
+            #080208 70%
+        );
+
+    z-index: 8000;
+}
+
+#menuScreen.show {
+    display: flex;
+}
+
+.menuContainer {
+    width: 100%;
+    max-width: 1100px;
+}
+
+.tinyHeading {
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+    color: #ff7898;
+
+    margin-bottom: 15px;
+}
+
+.menuContainer h1 {
+    font-size:
+        clamp(40px, 6vw, 65px);
+
+    margin-bottom: 10px;
+}
+
+.menuSubtitle {
+    color: #999;
+    margin-bottom: 50px;
+}
+
+
+/* =====================================================
+   MENU CARDS
+===================================================== */
+
+.menuCards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.menuCard {
+    position: relative;
+
+    height: 360px;
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    border:
+        1px solid rgba(255,255,255,.1);
+
+    transition:
+        transform .4s ease,
+        box-shadow .4s ease;
+}
+
+.menuCard:hover {
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 20px 50px rgba(255,30,80,.25);
+}
+
+.menuCard img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform .5s ease;
+}
+
+.menuCard:hover img {
+    transform: scale(1.08);
+}
+
+.cardOverlay {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    align-items: center;
+
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            transparent 35%,
+            rgba(0,0,0,.85)
+        );
+}
+
+.cardOverlay h2 {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.cardOverlay p {
+    font-size: 17px;
+    color: white;
+}
+
+
+/* =====================================================
+   LOCKED CARDS
+===================================================== */
+
+.menuCard.locked::after {
+    content: "🔒";
+
+    position: absolute;
+
+    top: 20px;
+    right: 20px;
+
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0,0,0,.65);
+
+    backdrop-filter: blur(10px);
+
+    font-size: 20px;
+}
+
+.menuMessage {
+    height: 30px;
+
+    margin-top: 25px;
+
+    color: #ff7898;
+
+    font-size: 15px;
+}
+
+
+/* =====================================================
+   MEMORY SCREENS
+===================================================== */
+
+.memoryScreen {
+    display: none;
+
+    padding: 45px 20px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #35100d,
+            #090304 65%
+        );
+
+    z-index: 7000;
+}
+
+.memoryScreen.show {
+    display: block;
+}
+
+.memoryContainer {
+    position: relative;
+
+    z-index: 5;
+
+    width: 100%;
+
+    max-width: 1250px;
+
+    margin: auto;
+}
+
+.memoryContainer h1 {
+    font-size:
+        clamp(38px, 6vw, 65px);
+
+    margin-bottom: 20px;
+}
+
+.memoryMessage {
+    max-width: 750px;
+
+    margin:
+        0 auto 30px;
+
+    color: #bbb;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   PHOTO GRID - SLIGHTLY RIGHT
+===================================================== */
+
+.photoGrid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 320px);
+
+    gap: 25px;
+
+    width: max-content;
+
+    margin-left: 35px;
+    margin-right: auto;
+
+    margin-bottom: 35px;
+}
+
+
+/* FIXED SQUARE IMAGES */
+
+.photoGrid img {
+    width: 320px;
+    height: 320px;
+
+    object-fit: cover;
+
+    display: block;
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.35);
+
+    transition:
+        transform .4s ease,
+        box-shadow .4s ease;
+}
+
+
+.photoGrid img:hover {
+    transform: scale(1.03);
+
+    box-shadow:
+        0 18px 45px rgba(255,50,100,.25);
+}
+
+/* =====================================================
+   FLOWER RAIN
+===================================================== */
+
+.flowerRain {
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+.fallingFlower {
+    position: absolute;
+
+    top: -100px;
+
+    animation:
+        fall linear forwards;
+
+    opacity: .9;
+
+    user-select: none;
+}
+
+@keyframes fall {
+
+    from {
+        transform:
+            translateY(-100px)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: .9;
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =====================================================
+   RETURN TO MENU - SMALL BOTTOM RIGHT
+===================================================== */
+
+.bottomButton {
+    position: fixed;
+
+    right: 25px;
+    bottom: 20px;
+
+    z-index: 100;
+
+    width: 120px;
+    height: 30px;
+
+    padding: 0;
+
+    margin: 0;
+
+    font-size: 10px;
+    font-weight: 500;
+
+    line-height: 30px;
+
+    text-align: center;
+
+    border: none;
+    border-radius: 15px;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 12px rgba(255,23,68,.25);
+}
+
+.bottomButton:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 18px rgba(255,23,68,.35);
+}
+
+/* =====================================================
+   FINAL SCREEN
+===================================================== */
+
+#finalScreen {
+    display: none;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 40px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #3a0715,
+            #080208 70%
+        );
+
+    z-index: 6000;
+}
+
+#finalScreen.show {
+    display: flex;
+}
+
+.finalContent {
+    width: 90%;
+    max-width: 750px;
+}
+
+.finalHeart {
+    font-size: 80px;
+
+    margin-bottom: 30px;
+
+    animation:
+        heartbeat 1.2s infinite;
+}
+
+.finalContent h1 {
+    font-size:
+        clamp(30px, 5vw, 55px);
+
+    color: #ff7898;
+
+    margin-bottom: 30px;
+}
+
+.finalContent p:not(.tinyHeading):not(.signature) {
+    color: #bbb;
+
+    font-size: 18px;
+
+    line-height: 1.9;
+
+    margin-bottom: 25px;
+}
+
+.finalContent h2 {
+    margin-top: 35px;
+
+    color: #ff7898;
+
+    font-size: 35px;
+}
+
+.signature {
+    margin-top: 40px;
+
+    color: #ff7898;
+
+    font-size: 20px;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .photoGrid {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 15px;
+    }
+
+    .memoryContainer {
+        max-width: 95%;
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 750px) {
+
+    .menuCards {
+        grid-template-columns: 1fr;
+    }
+
+    .menuCard {
+        height: 300px;
+
+        max-width: 400px;
+
+        width: 100%;
+
+        margin: auto;
+    }
+
+    .photoGrid {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 10px;
+
+        width: 100%;
+    }
+
+    .photoGrid img {
+        width: 100%;
+
+        aspect-ratio: 1 / 1;
+
+        height: auto;
+
+        object-fit: cover;
+    }
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 500px) {
+
+    .loadingContent h1 {
+        font-size: 36px;
+    }
+
+    .pinContainer {
+        padding:
+            40px 25px;
+    }
+
+    .pinContainer h1 {
+        font-size: 36px;
+    }
+
+    .memoryScreen {
+        padding:
+            45px 8px;
+    }
+
+    .memoryContainer h1 {
+        font-size: 34px;
+
+        margin-bottom: 15px;
+    }
+
+    .memoryMessage {
+        font-size: 15px;
+
+        margin-bottom: 22px;
+
+        padding:
+            0 8px;
+    }
+
+    /* LARGE SQUARE PHOTOS */
+
+    .photoGrid {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 7px;
+
+        width: 100%;
+
+        margin-bottom: 12px;
+    }
+
+    .photoGrid img {
+        width: 100%;
+
+        aspect-ratio: 1 / 1;
+
+        height: auto;
+
+        object-fit: cover;
+
+        border-radius: 9px;
+    }
+
+    /* TINY RETURN BUTTON */
+
+    .memoryScreen .bottomButton {
+        padding:
+            4px 8px !important;
+
+        font-size: 8px !important;
+
+        max-width: 100px;
+
+        border-radius: 8px;
+
+        margin:
+            0 0 12px auto;
+    }
+}
