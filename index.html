@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Heyy Love ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     SCREEN 1 — LOADING SCREEN
+====================================================== -->
+
+<section id="loadingScreen" class="screen active">
+
+    <div class="loadingContent">
+
+        <div class="heartArea">
+
+            <div class="heartGlow"></div>
+
+            <div class="beatingHeart">
+                ❤️
+            </div>
+
+        </div>
+
+
+        <h1>
+            Heyy Love
+        </h1>
+
+
+        <p id="loadingMessage">
+            Something Special is Loading meri jaan
+        </p>
+
+
+        <div class="loadingBar">
+
+            <div id="loadingProgress"></div>
+
+        </div>
+
+
+        <span id="loadingPercent">
+            0%
+        </span>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SCREEN 2 — PIN SCREEN
+====================================================== -->
+
+<section id="pinScreen" class="screen">
+
+    <div class="pinContainer">
+
+        <div class="lockIcon">
+            🔐
+        </div>
+
+
+        <h1>
+            Heyy Love
+        </h1>
+
+
+        <p>
+            WAIT..... My baby you will get to know everything 
+        </p>
+
+
+        <h3>
+            Enter the secret PIN  
+            (Hint: It's related to you babyygirl)
+        </h3>
+
+
+        <input
+            type="password"
+            id="pinInput"
+            maxlength="4"
+            inputmode="numeric"
+            placeholder="••••"
+        >
+
+
+        <button id="unlockButton">
+            Unlock ❤️
+        </button>
+
+
+        <p id="pinError"></p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SCREEN 3 — MAIN MENU
+====================================================== -->
+
+<section id="menuScreen" class="screen">
+
+    <div class="menuContainer">
+
+        <p class="tinyHeading">
+            THIS IS FOR YOUUU MY CUTIE PIEEEEEEEEE
+        </p>
+
+
+        <h1>
+            Choose one ❤️
+        </h1>
+
+
+        <p class="menuSubtitle">
+            But remember... there is a correct order 😉
+        </p>
+
+
+        <div class="menuCards">
+
+    <div
+        class="menuCard"
+        id="option1"
+        onclick="selectOption(1)"
+    >
+        <img src="images/F1.jpeg" alt="First Image">
+
+        <div class="cardOverlay">
+            <h2>🌸</h2>
+            <p>Something beautiful</p>
+        </div>
+    </div>
+
+
+    <div
+        class="menuCard locked"
+        id="option2"
+        onclick="selectOption(2)"
+    >
+        <img src="images/F2.jpeg" alt="Second Image">
+
+        <div class="cardOverlay">
+            <h2>🌷</h2>
+            <p>Something special</p>
+        </div>
+    </div>
+
+
+    <div
+        class="menuCard locked"
+        id="option3"
+        onclick="selectOption(3)"
+    >
+        <img src="images/F3.jpeg" alt="Third Image">
+
+        <div class="cardOverlay">
+            <h2>💐</h2>
+            <p>Something more</p>
+        </div>
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SCREEN 4 — LILY PAGE
+====================================================== -->
+
+<section id="lilyScreen" class="memoryScreen">
+
+    <div
+        id="lilyRain"
+        class="flowerRain"
+    ></div>
+
+
+    <div class="memoryContainer">
+
+        <p class="tinyHeading">
+            CHAPTER ONE
+        </p>
+
+
+        <h1>
+            THIS IS BABY YOUUU
+        </h1>
+
+
+        <p class="memoryMessage">
+            YOU STILL ARE THIS BABY NITI FOR ME 
+            WHEN I LOOK AT YOU I JUST WANTED TO KISS YOU 
+            I WANT TO TAKE YOU IN MY ARMS AND I'LL MAKE YOU FORGET THE WORLD MY BABY NITI
+            
+        </p>
+
+
+        <div class="photoGrid">
+
+
+           <div class="photoGrid">
+
+    <img
+        src="images/N14.jpeg"
+        alt="Our Memory 1"
+    >
+
+    <img
+        src="images/N12.jpeg"
+        alt="Our Memory 2"
+    >
+
+    <img
+        src="images/N16.jpeg"
+        alt="Our Memory 3"
+    >
+
+    <img
+        src="images/N17.jpeg"
+        alt="Our Memory 4"
+    >
+
+    <img
+        src="images/N11.jpeg"
+        alt="Our Memory 5"
+    >
+
+    <img
+        src="images/N13.jpeg"
+        alt="Our Memory 6"
+    >
+
+    <img
+        src="images/N20.jpeg"
+        alt="Our Memory 7"
+    >
+
+</div>
+
+
+        <button
+            class="bottomButton"
+            onclick="goToMenu()"
+        >
+            ← Return to Main Menu
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SCREEN 5 — TULIP PAGE
+====================================================== -->
+
+<section id="tulipScreen" class="memoryScreen">
+
+    <div
+        id="tulipRain"
+        class="flowerRain"
+    ></div>
+
+
+    <div class="memoryContainer">
+
+        <p class="tinyHeading">
+            CHAPTER TWO
+        </p>
+
+
+        <h1>
+            PRE MEETING PHASE 
+        </h1>
+
+
+        <p class="memoryMessage">
+            I WISH I COULD BE WITH YOU FROM STARTING 
+            GROWING UP WITH YOU  BE THERE IN EVERY MOMENT 
+            I WANT MY LIFE TO BE FULL OF YOU  JUST YOU AND YOU 
+        </p>
+
+
+        <div class="photoGrid">
+
+            <img
+        src="images/K1.jpeg"
+        alt="Our Memory 1"
+    >
+
+             <img
+        src="images/K2.jpeg"
+        alt="Our Memory 1"
+    >
+
+             <img
+        src="images/K3.jpeg"
+        alt="Our Memory 1"
+    >
+
+             <img
+        src="images/K4.jpeg"
+        alt="Our Memory 1"
+    >
+
+             <img
+        src="images/K5.jpeg"
+        alt="Our Memory 1"
+    >
+
+             <img
+        src="images/K6.jpeg"
+        alt="Our Memory 1"
+    >
+
+            <img
+        src="images/K7.jpeg"
+        alt="Our Memory 1"
+    >
+
+        </div>
+
+
+        <button
+            class="bottomButton"
+            onclick="goToMenu()"
+        >
+            ← Return to Main Menu
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SCREEN 6 — THIRD PAGE
+====================================================== -->
+
+<section id="thirdScreen" class="memoryScreen">
+
+    <div
+        id="flowerRain"
+        class="flowerRain"
+    ></div>
+
+
+    <div class="memoryContainer">
+
+        <p class="tinyHeading">
+            CHAPTER THREE
+        </p>
+
+
+        <h1>
+            THE US PHASE 
+        </h1>
+
+
+        <p class="memoryMessage">
+            SINCE THE DAY ONE NITI BABY IM ALL YOURS 
+            YOU ARE THE COLOR TO ME  YOU ARE MY SMILE 
+            THE MOST BEAUTIFUL GIRL WITH THE PRITTEST SMILE 
+            LOOOOK AT YOU BABYYYYYYYYYYYYYYYYYYY
+            THIS BEAUTY IS BREATH TAKINGGGG.........
+        </p>
+
+
+        <div class="photoGrid">
+
+            <img
+        src="images/A1.jpeg"
+        alt="Our Memory 1"
+    >
+
+            <img
+        src="images/A2.jpeg"
+        alt="Our Memory 1"
+    >
+
+           <img
+        src="images/A3.jpeg"
+        alt="Our Memory 1"
+    >
+
+           <img
+        src="images/A4.jpeg"
+        alt="Our Memory 1"
+    >
+
+            <img
+        src="images/A5.jpeg"
+        alt="Our Memory 1"
+    >
+
+            <img
+        src="images/A6.jpeg"
+        alt="Our Memory 1"
+    >
+
+            <img
+        src="images/A7.jpeg"
+        alt="Our Memory 1"
+    >
+
+        </div>
+
+
+        <button
+            class="bottomButton"
+            onclick="goToFinal()"
+        >
+            Next → ❤️
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SCREEN 7 — FINAL MESSAGE
+====================================================== -->
+
+<section id="finalScreen" class="finalScreen">
+
+    <div class="finalContent">
+
+        <div class="finalHeart">
+            ❤️
+        </div>
+
+
+        <p class="tinyHeading">
+            SOOO MY BABBYYYYY
+        </p>
+
+
+        <h1>
+            WISHING YOU A HAPPIESTTTT BIRTHDAY MERI JAAAAAAAAAAN
+            MY BABYYY IS 21 NOW BUT YOU STILL ARE THAT SMALL NITI 
+        </h1>
+
+
+        <p>
+          THNAK YOU  THNANKYOU FOR MAKING THIS LIFE SO PEACEFUL AND THIS BEAUTIFUL
+          IM SORRY FOR ALL THOSE DAYS   IM REALLY SORRY BABYYYY 
+          NIYATI ITS ONLY YOU AND YOU  AND IT'LL BE ONLY YOUUU
+          I PROMISE TO BE BETTER EVERYDAY 
+        </p>
+
+
+        <p>
+           I'LL NEVER LET YOU GO MY BABBYYYYY
+           NIYATI IM AFRAID OF HURTING YOUUU
+           I HATE MYSELF WHENEVER I HURT YOU 
+           NIYATI YOU ARE PRECISIOUS TO  ME 
+           YOUR SMILE YOUR PEACE 
+           IDK WHY IM CRYING WRITING THIS BUT NITI 
+           I SWEAR NIYATI IM REALLYY SOORY MY BABYYYY
+
+
+        <h2>
+            I LOVVVEEEEEE YOOUUUU MY BABYYYYY 
+            MY CUTIEEE PIEEEEEEEEEEEE❤️
+        </h2>
+
+
+        <p class="signature">
+            IM ALWAYS  YOURS BABYYYYYYYYYYYYYYYYYYY
+            FOREVER YOURS...
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
